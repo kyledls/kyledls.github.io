@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const projects = [
         {
             title: "AI Media Sentiment and Narrative Analysis",
-            description: "Final Submission for Raise-2024 (National Data Science/Informatics Competition) that won 1st place out of 100+ teams. Implemented advanced analytics including sentiment analysis and LLM-based categorization of news articles to extract key insights.",
+            description: 'Final Submission for <a href="https://bloustein.rutgers.edu/graduate/public-informatics/raise2024/">Raise-2024 (National Data Science/Informatics Competition)</a> that won 1st place out of 100+ teams. Implemented advanced analytics including sentiment analysis and LLM-based categorization of news articles to extract key insights.',
             image: "/images/Raise.png", 
             techStack: ["Python", "NLTK", "Pandas", "Natural Language Processing", "Machine Learning"],
             projectUrl: "https://github.com/kyledls/raise-2024-competition"
@@ -92,7 +92,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     createProjectCards();
+
 });
+
+const aboutMeTitle = document.querySelector('#about h1');
+const text = "About Me";
+let index = 0;
+
+function typeEffect() {
+    if (index < text.length) {
+        aboutMeTitle.innerHTML = text.substring(0, index + 1) + '<span class="cursor">|</span>';
+        index++;
+        setTimeout(typeEffect, 250); 
+    } else {
+        aboutMeTitle.innerHTML = text; 
+    }
+}
+
+typeEffect();
 
 document.querySelector('.resume-timeline').innerHTML = jobData.map(createJobCard).join('');
 
